@@ -1,66 +1,8 @@
-const inquirer = require("inquirer");
-const fs = require("fs");
 
-// array of questions for user
-const questions = [
-    {
-        message: "What is your app's name?",
-        name: "name",
-        default: "Good Read Me Generator"
-    },
-
-    {
-        message: "Enter a short description for your app.",
-        name: "description",
-        default: "The greatest app in the world."
-
-    },
-
-    { message: "What comman to type for installation?",
-      name: "installation",
-      default: "npm install"
-},
-
-{     message: "What is the purpose of the app?",
-      name: "usage",
-      default: "default"
-},
-
-    {
-      message: "What license are you going to use?",
-      name: "license",
-      default: "default"
-},
-
-{
-      message: "What are you contributing?",
-      name: "contribution",
-      default: "default"
-
-},
-
-{
-      message: "What test are you using?",
-      name: "questions",
-      default: "question"
-},
-
-];
-
-// function to write README file
-function writeToFile(fileName, data) {
-
-}
-
-// function to initialize program
-function init() {
-
-    inquirer.prompt(questions).then(data => {
-        const readmeTemplate = `
-# ${data.name}
+# Good Read Me Generator
 
 ## Description
-${data.description}
+It will generate a good Read Me file on your repository.
 
 ## Table of Contents
 * [Description](## Description)
@@ -72,22 +14,22 @@ ${data.description}
 * [Questions] (## Questions)
 
 ## Installation
-${data.installation}
+npm install
 
 ## Usage
-${data.usage}
+to generate a read me file
 
 ## License
-${data.license}
+isc
 
 ## Contributing
-${data.contributing}
+undefined
 
 ## Tests
-${data.tests}
+undefined
 
 ## Questions
-${data.questions}
+i don't know
 
 GIVEN a command-line application that accepts user input
 WHEN I am prompted for information about my application repository
@@ -174,10 +116,4 @@ THEN I am taken to the corresponding section of the README
         * A sample README.md file for a project repository generated using your application.
         
         * The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-        `
-        fs.writeFile("test.md", readmeTemplate , err=> console.log(err || "Success!"))
-    })
-}
-
-// function call to initialize program
-init();
+        
